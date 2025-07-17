@@ -1,0 +1,44 @@
+name: Claude Code Assistant
+
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened]
+
+jobs:
+  claude-assist:
+    # 只在提到 @claude 時觸發
+    if: contains(github.event.comment.body || github.event.issue.body, '@claude')
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Run Claude Code Action
+        uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
+          allowed_tools: "Bash(*),GlobTool,GrepTool,View,Edit,Write,TodoWrite"
+          
+          # 自定義指令
+          custom_instructions: |
+            你是一位資深的前端工程師，專門協助實現創意網頁設計。
+            
+            重要規則：
+            1. 首先閱讀 CLAUDE.md 文件，了解你的角色和職責
+            2. 仔細閱讀 prd.md 文件，理解用戶的設計需求
+            3. 查看 /docs 目錄下的所有規範文件
+            4. 使用 Next.js 15+ 和 TypeScript 實現功能
+            5. 優先使用已安裝的 shadcn/ui 元件
+            6. 通過 /api/products 獲取商品數據
+            7. 遵循所有編碼規範和視覺指南
+            
+            你的目標是將 prd.md 中的創意描述轉化為實際可運行的網頁。

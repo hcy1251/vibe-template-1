@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 查看文檔
+    url: https://github.com/YOUR_USERNAME/golden-template/blob/main/README.md
+    about: 請先查看專案文檔了解使用方法
+  - name: 💡 查看 PRD 範本
+    url: https://github.com/YOUR_USERNAME/golden-template/blob/main/prd.md
+    about: 了解如何填寫產品需求文檔
