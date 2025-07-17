@@ -17,7 +17,7 @@ Closes #<!-- Issue 編號 -->
 ## ✅ 檢查清單
 
 ### 對於 Claude 生成的 PR：
-- [ ] 程式碼符合 prd.md 中的需求
+- [ ] 程式碼符合 PRD.md 中的需求
 - [ ] 使用了正確的技術棧（Next.js、TypeScript）
 - [ ] 遵循了編碼規範
 - [ ] UI 符合視覺設計要求

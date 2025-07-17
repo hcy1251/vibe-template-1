@@ -1,13 +1,15 @@
 # 🏆 黃金範本儲存庫 (Golden Template)
 
-這是一個為「AI 驅動開發」設計的 Next.js 專案範本。讓非技術背景的創意工作者（Vibe Coder）能透過簡單的文字描述，由 AI 自動生成功能完整的網頁應用。
+這是一個專為「AI 驅動開發流程」設計的 Next.js 專案範本。它不是給人類開發者使用的傳統範本，而是為了讓**非技術背景的創意工作者（Vibe Coder）**能透過簡單的文字描述，由 **AI Agent (Claude)** 自動生成功能完整、可部署的網頁應用。
 
-## 🎯 專案特色
+## 🎯 核心理念
 
-- **AI 優先設計** - 所有文檔和結構都為 AI 理解優化
-- **零程式碼創作** - 只需修改 `prd.md` 文件描述你的創意
-- **自動化開發** - GitHub Actions + Claude AI 自動實現功能
-- **現代技術棧** - Next.js 15+、TypeScript、Tailwind CSS、Shadcn/UI
+本專案是一場開發流程革命的實驗：
+
+- **主要用戶是 AI** - 整個專案結構、文檔和規範都經過精心設計，為了讓 Claude AI 能最大程度理解並執行任務
+- **零程式碼創作** - Vibe Coder 只需修改 `PRD.md` 文件來表達創意，無需編寫任何程式碼
+- **完全自動化** - 從讀取需求到生成程式碼，全程由 GitHub Actions 驅動的 AI 完成
+- **上下文豐富** - 提供完整的技術規範和指導文檔，確保 AI 產出高品質、一致性的程式碼
 
 ## 🚀 快速開始
 
@@ -29,7 +31,7 @@
 
 ### 3. 表達你的創意
 
-編輯 `prd.md` 文件，在各個段落中描述你理想中的網頁設計：
+編輯 `PRD.md` 文件，在各個段落中描述你理想中的網頁設計：
 
 - 核心設計理念
 - 頁面佈局結構
@@ -47,23 +49,28 @@
 ## 📁 專案結構
 
 ```
-golden-template/
-├── src/
-│   ├── app/              # Next.js 頁面和 API
-│   ├── components/       # React 元件
-│   │   └── ui/          # Shadcn/UI 元件
-│   └── lib/             # 工具函數
+vibe-template/
+├── app/                 # Next.js App Router
+│   ├── api/            # API 路由
+│   │   └── products/   # 商品 API 端點
+│   ├── components/     # React 元件
+│   │   └── ui/        # Shadcn/UI 元件
+│   └── page.tsx       # 首頁
+├── lib/                # 工具函數
 ├── public/              
-│   └── products.json    # 商品數據（模擬資料）
-├── docs/                # 技術規範文檔
-│   ├── api_docs.md      # API 文檔
-│   ├── db_schema.md     # 數據結構
-│   ├── coding_style.md  # 編碼規範
-│   └── style_guide.md   # 視覺風格指南
-├── .github/workflows/   # GitHub Actions
-├── CLAUDE.md           # AI 角色定義與規則
-├── prd.md             # 產品需求文檔（你的創意空間）
-└── README.md          # 本文件
+│   └── products.json   # 商品數據（唯一數據源，禁止修改）
+├── docs/               # AI 上下文文檔
+│   ├── api_docs.md     # API 端點規範
+│   ├── db_schema.md    # 數據結構定義
+│   ├── coding_style.md # 程式碼風格規範
+│   └── style_guide.md  # 視覺設計指南
+├── .github/
+│   └── workflows/      
+│       └── claude.yml  # 自動化工作流
+├── CLAUDE.md          # AI 角色與權責定義（核心文件）
+├── PRD.md            # 產品需求文檔（Vibe Coder 的創意畫布）
+├── mcp.py            # AI 工具擴展（v0.dev 整合）
+└── README.md         # 本文件
 ```
 
 ## 🛠️ 技術棧
@@ -101,12 +108,18 @@ pnpm test
 
 ## 📝 工作流程
 
-1. **Vibe Coder** 修改 `prd.md` 描述創意
-2. 使用 Issue 模板創建新 Issue
-3. 在評論中輸入 `@claude` 觸發 AI
-4. **Claude AI** 讀取所有文檔並實現功能
-5. 自動創建 Pull Request
-6. 審查並合併程式碼
+這是整個 AI 驅動開發的核心流程：
+
+1. **Fork 範本** - Vibe Coder Fork 這個儲存庫作為自己的專案基礎
+2. **表達創意** - 修改 `PRD.md` 文件，用自然語言描述理想中的網頁設計
+3. **觸發 AI** - 在 Issue 中評論 `@claude` 啟動自動化開發
+4. **AI 理解任務** - Claude 讀取：
+   - `PRD.md` - 理解創意需求
+   - `CLAUDE.md` - 明確自身角色與規則
+   - `/docs/*` - 獲取技術規範和指導
+5. **自動實現** - AI 根據所有上下文生成完整的功能程式碼
+6. **創建 PR** - 自動提交 Pull Request 供審查
+7. **部署上線** - 合併後即可部署成為真實網站
 
 ## 📚 Issue 和 PR 模板
 
@@ -121,17 +134,52 @@ pnpm test
 - 📖 [Claude 互動指南](docs/claude_interaction_guide.md) - 學習如何有效地與 AI 對話
 - 📝 Pull Request 模板 - 審查 AI 生成的程式碼
 
-## ⚙️ GitHub Actions 配置
+## ⚙️ 自動化架構
 
-專案使用官方的 Claude Code Action：
-- 檔案：`.github/workflows/claude.yml`
-- Action：`anthropics/claude-code-action@beta`
-- 觸發詞：`@claude`
-- 自動讀取 prd.md 並實現功能
+本專案的自動化核心：
 
-## 🤝 貢獻指南
+### GitHub Actions (`claude.yml`)
+- **觸發條件**: Issue 評論包含 `@claude`
+- **核心 Action**: `anthropics/claude-code-action`
+- **工作流程**:
+  1. 檢測評論觸發詞
+  2. 啟動 Claude AI Agent
+  3. AI 讀取所有相關文件
+  4. 生成程式碼並創建 PR
 
-歡迎提交 Issue 和 Pull Request 來改進這個範本！
+### AI 工具擴展 (`mcp.py`)
+- **功能**: 整合 v0.dev API
+- **目的**: 讓 AI 能生成複雜的 UI 元件
+- **使用**: AI 可調用此工具增強設計能力
+
+## 🔑 關鍵文件說明
+
+### `CLAUDE.md` - AI 的「大腦」
+定義了 AI 的角色、權責和工作規則。這是確保 AI 行為一致性的核心文件。
+
+### `PRD.md` - 創意的畫布
+Vibe Coder 表達創意的唯一介面。提供結構化的模板引導非技術用戶描述需求。
+
+### `/docs/` - 知識庫
+包含所有技術規範，將隱性知識顯性化，讓 AI 能準確理解專案要求。
+
+## 🎯 成功標準
+
+本專案的成功取決於：
+
+1. **最少人類干預** - AI 能獨立完成從需求到實現的全過程
+2. **最大理解程度** - 透過豐富的上下文讓 AI 充分理解任務
+3. **高品質產出** - AI 生成的程式碼符合所有規範且功能完整
+4. **一致性保證** - 每次執行都能產出風格一致的高品質程式碼
+
+## 🚫 重要限制
+
+AI 在工作時必須遵守的規則：
+
+- **禁止修改** `/public/products.json` - 這是唯一的數據源
+- **禁止修改** `/docs/` 目錄下的任何文件 - 這些是不可變的規範
+- **必須使用** 預安裝的 Shadcn/UI 元件
+- **必須通過** API 端點獲取數據，不得直接引入 JSON 文件
 
 ## 📄 授權
 
@@ -139,4 +187,6 @@ MIT License
 
 ---
 
-> 💡 **提示**: 這個範本是實驗性質的，旨在探索 AI 驅動開發的可能性。享受創作的樂趣！
+> 🚀 **這不只是一個專案範本，這是一場開發流程的革命實驗。**
+> 
+> 讓我們一起探索 AI 驅動開發的無限可能！
