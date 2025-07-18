@@ -39,17 +39,18 @@
 ## 專案結構
 
 ```
-golden-template/
-├── src/
-│   ├── app/              # Next.js App Router 頁面
-│   ├── components/       # React 元件
-│   │   └── ui/          # Shadcn/UI 元件
-│   └── lib/             # 工具函數和共用邏輯
-├── public/              # 靜態資源
-│   └── products.json    # 商品數據（只讀）
-├── docs/                # 專案文檔
-├── PRD.md              # 產品需求文檔
-└── CLAUDE.md           # 本文件
+vibe-template/
+├── app/                 # Next.js App Router 頁面
+│   ├── api/            # API 路由
+│   └── test/           # 測試頁面
+├── components/          # React 元件
+│   └── ui/             # Shadcn/UI 元件
+├── lib/                # 工具函數和共用邏輯
+├── public/             # 靜態資源
+│   └── products.json   # 商品數據（只讀）
+├── docs/               # 專案文檔
+├── PRD.md             # 產品需求文檔
+└── CLAUDE.md          # 本文件
 ```
 
 ## 開發建議
