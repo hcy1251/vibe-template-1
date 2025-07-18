@@ -1,32 +1,122 @@
 [
   {
     "id": 1,
-    "name": "經典白色運動鞋",
+    "name": "經典按摩器",
     "price_in_cents": 298000,
-    "image_url": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=400&auto=format&fit=crop"
+    "image_url": "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=400&auto=format&fit=crop",
+    "description": "專業設計，靜音運作，多種模式選擇",
+    "category": "按摩器",
+    "inStock": true,
+    "stock": 15
   },
   {
     "id": 2,
-    "name": "極簡主義皮革錢包",
-    "price_in_cents": 158000,
-    "image_url": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=400&auto=format&fit=crop"
+    "name": "豪華套裝組合",
+    "price_in_cents": 458000,
+    "image_url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&auto=format&fit=crop",
+    "description": "完整體驗套裝，包含多種配件",
+    "category": "套裝",
+    "inStock": true,
+    "stock": 8
   },
   {
     "id": 3,
-    "name": "復古圓框太陽眼鏡",
-    "price_in_cents": 89900,
-    "image_url": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&auto=format&fit=crop"
+    "name": "入門款商品",
+    "price_in_cents": 128000,
+    "image_url": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=400&auto=format&fit=crop",
+    "description": "適合初學者，簡約設計",
+    "category": "入門",
+    "inStock": false,
+    "stock": 0
   },
   {
     "id": 4,
-    "name": "北歐風格陶瓷馬克杯",
-    "price_in_cents": 35900,
-    "image_url": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&auto=format&fit=crop"
+    "name": "高端精品系列",
+    "price_in_cents": 598000,
+    "image_url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&auto=format&fit=crop",
+    "description": "頂級材質，精工製作",
+    "category": "精品",
+    "inStock": true,
+    "stock": 5
   },
   {
     "id": 5,
-    "name": "手工編織羊毛圍巾",
-    "price_in_cents": 128000,
-    "image_url": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&h=400&auto=format&fit=crop"
+    "name": "多功能智能款",
+    "price_in_cents": 398000,
+    "image_url": "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=400&auto=format&fit=crop",
+    "description": "智能控制，APP連接",
+    "category": "智能",
+    "inStock": true,
+    "stock": 12
+  },
+  {
+    "id": 6,
+    "name": "旅行便攜款",
+    "price_in_cents": 198000,
+    "image_url": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=400&auto=format&fit=crop",
+    "description": "輕巧便攜，適合出差旅行",
+    "category": "便攜",
+    "inStock": true,
+    "stock": 20
+  },
+  {
+    "id": 7,
+    "name": "情侶套裝",
+    "price_in_cents": 688000,
+    "image_url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&auto=format&fit=crop",
+    "description": "專為情侶設計的雙人套裝",
+    "category": "情侶",
+    "inStock": true,
+    "stock": 6
+  },
+  {
+    "id": 8,
+    "name": "專業版系列",
+    "price_in_cents": 798000,
+    "image_url": "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=400&auto=format&fit=crop",
+    "description": "專業級品質，醫療級材質",
+    "category": "專業",
+    "inStock": true,
+    "stock": 3
+  },
+  {
+    "id": 9,
+    "name": "經濟實惠款",
+    "price_in_cents": 98000,
+    "image_url": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=400&auto=format&fit=crop",
+    "description": "性價比優選，品質保證",
+    "category": "經濟",
+    "inStock": true,
+    "stock": 25
+  },
+  {
+    "id": 10,
+    "name": "限量版收藏",
+    "price_in_cents": 1298000,
+    "image_url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&auto=format&fit=crop",
+    "description": "限量發售，獨特設計",
+    "category": "限量",
+    "inStock": true,
+    "stock": 2
+  },
+  {
+    "id": 11,
+    "name": "基礎護理套裝",
+    "price_in_cents": 258000,
+    "image_url": "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=400&auto=format&fit=crop",
+    "description": "日常護理必備，溫和有效",
+    "category": "護理",
+    "inStock": true,
+    "stock": 18
+  },
+  {
+    "id": 12,
+    "name": "進階體驗款",
+    "price_in_cents": 498000,
+    "image_url": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=400&auto=format&fit=crop",
+    "description": "升級體驗，多種選擇",
+    "category": "進階",
+    "inStock": false,
+    "stock": 0
   }
 ]
