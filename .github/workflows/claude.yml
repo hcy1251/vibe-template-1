@@ -26,7 +26,9 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ github.token }}
-          allowed_tools: "Bash(*),GlobTool,GrepTool,View,Edit,Write,TodoWrite"
+          timeout_minutes: "60"
+          # 明確允許的工具
+          allowed_tools: "Bash(git:*),Bash(npm:*),Bash(pnpm:*),Bash(yarn:*),Bash(node:*),Read,Write,Edit,Glob,Grep,TodoWrite"
           
           # 自定義指令
           custom_instructions: |
