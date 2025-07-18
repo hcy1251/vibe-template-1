@@ -13,7 +13,6 @@ export async function GET() {
     return NextResponse.json(products)
   } catch (error) {
     // 錯誤處理
-    console.error('Failed to load products:', error)
     return NextResponse.json(
       { error: 'Failed to load products' },
       { status: 500 }
