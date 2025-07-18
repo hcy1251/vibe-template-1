@@ -1,5 +1,6 @@
 import { GET } from './route'
 import { NextResponse } from 'next/server'
+import fs from 'fs'
 
 // Mock the file system
 jest.mock('fs', () => ({
@@ -7,6 +8,9 @@ jest.mock('fs', () => ({
     readFile: jest.fn()
   }
 }))
+
+// Get mocked fs module
+const mockedFs = fs as jest.Mocked<typeof fs>
 
 describe('/api/products', () => {
   it('should return products successfully', async () => {
@@ -20,8 +24,7 @@ describe('/api/products', () => {
     ]
 
     // Mock fs.readFile
-    const fs = require('fs')
-    fs.promises.readFile.mockResolvedValue(JSON.stringify(mockProducts))
+    ;(mockedFs.promises.readFile as jest.Mock).mockResolvedValue(JSON.stringify(mockProducts))
 
     const response = await GET()
     const data = await response.json()
@@ -32,8 +35,7 @@ describe('/api/products', () => {
 
   it('should return error when file reading fails', async () => {
     // Mock fs.readFile to throw error
-    const fs = require('fs')
-    fs.promises.readFile.mockRejectedValue(new Error('File not found'))
+    ;(mockedFs.promises.readFile as jest.Mock).mockRejectedValue(new Error('File not found'))
 
     const response = await GET()
     const data = await response.json()
