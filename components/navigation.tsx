@@ -11,8 +11,7 @@ import {
   ShoppingCart, 
   Heart, 
   User, 
-  Search,
-  Sparkles 
+  Search
 } from 'lucide-react'
 
 export function Navigation() {
@@ -26,12 +25,14 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200">
+      <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <Sparkles className="h-8 w-8 text-rose-500" />
-          <span className="font-bold text-xl text-white">Vibe</span>
+          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
+            <span className="text-white font-bold text-sm">V</span>
+          </div>
+          <span className="font-semibold text-xl text-gray-900">Vibe</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -40,7 +41,7 @@ export function Navigation() {
             <Link 
               key={item.href}
               href={item.href}
-              className="text-white/80 hover:text-white transition-colors duration-200 hover:text-rose-300"
+              className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm font-medium"
             >
               {item.label}
             </Link>
@@ -48,23 +49,23 @@ export function Navigation() {
         </div>
 
         {/* Right side actions */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2">
           {/* Search */}
           <Button 
             variant="ghost" 
             size="sm"
-            className="text-white/80 hover:text-white hover:bg-white/10"
+            className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full w-9 h-9 p-0"
           >
-            <Search className="h-5 w-5" />
+            <Search className="h-4 w-4" />
           </Button>
 
           {/* Wishlist */}
           <Button 
             variant="ghost" 
             size="sm"
-            className="text-white/80 hover:text-white hover:bg-white/10"
+            className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full w-9 h-9 p-0"
           >
-            <Heart className="h-5 w-5" />
+            <Heart className="h-4 w-4" />
           </Button>
 
           {/* Cart */}
@@ -72,13 +73,12 @@ export function Navigation() {
             <Button 
               variant="ghost" 
               size="sm"
-              className="text-white/80 hover:text-white hover:bg-white/10 relative"
+              className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full w-9 h-9 p-0 relative"
             >
-              <ShoppingCart className="h-5 w-5" />
+              <ShoppingCart className="h-4 w-4" />
               {state.itemCount > 0 && (
                 <Badge 
-                  variant="destructive"
-                  className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-rose-500"
+                  className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-blue-600 text-white border-2 border-white"
                 >
                   {state.itemCount}
                 </Badge>
@@ -90,9 +90,9 @@ export function Navigation() {
           <Button 
             variant="ghost" 
             size="sm"
-            className="text-white/80 hover:text-white hover:bg-white/10"
+            className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full w-9 h-9 p-0"
           >
-            <User className="h-5 w-5" />
+            <User className="h-4 w-4" />
           </Button>
 
           {/* Mobile menu trigger */}
@@ -101,18 +101,18 @@ export function Navigation() {
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="md:hidden text-white/80 hover:text-white hover:bg-white/10"
+                className="md:hidden text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full w-9 h-9 p-0"
               >
-                <Menu className="h-5 w-5" />
+                <Menu className="h-4 w-4" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-black/95 border-white/10">
-              <div className="flex flex-col space-y-4 mt-8">
+            <SheetContent side="right" className="bg-white border-gray-200">
+              <div className="flex flex-col space-y-6 mt-8">
                 {navItems.map((item) => (
                   <Link 
                     key={item.href}
                     href={item.href}
-                    className="text-white/80 hover:text-white transition-colors duration-200 text-lg"
+                    className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-lg font-medium"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}

@@ -42,52 +42,49 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
 
   return (
     <Card 
-      className={`group relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-rose-500/20 border-white/10 bg-gradient-to-br from-gray-900 to-black ${cardSize}`}
+      className={`group relative overflow-hidden transition-all duration-300 hover:shadow-xl border-gray-200 bg-white rounded-2xl ${cardSize}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <Link href={`/products/${product.id}`}>
         <CardContent className="p-0">
           {/* Product Image */}
-          <div className={`relative ${imageSize} overflow-hidden`}>
+          <div className={`relative ${imageSize} overflow-hidden rounded-t-2xl`}>
             <Image
               src={product.image_url}
               alt={product.name}
               fill
               className={`object-cover transition-transform duration-500 ${
-                isHovered ? 'scale-110' : 'scale-100'
+                isHovered ? 'scale-105' : 'scale-100'
               }`}
             />
-            
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             
             {/* Stock badge */}
             {product.in_stock === false && (
               <Badge 
                 variant="destructive" 
-                className="absolute top-2 left-2 bg-red-500/90 text-white"
+                className="absolute top-3 left-3 bg-red-500 text-white font-medium"
               >
                 缺貨
               </Badge>
             )}
             
             {/* Hover overlay with actions */}
-            <div className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${
+            <div className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}>
-              <div className="absolute top-2 right-2 flex flex-col space-y-2">
+              <div className="absolute top-3 right-3 flex flex-col space-y-2">
                 <Button 
                   size="sm" 
                   variant="secondary"
-                  className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm"
+                  className="bg-white/90 hover:bg-white text-gray-700 backdrop-blur-sm rounded-full w-9 h-9 p-0 shadow-lg"
                 >
                   <Heart className="h-4 w-4" />
                 </Button>
                 <Button 
                   size="sm" 
                   variant="secondary"
-                  className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm"
+                  className="bg-white/90 hover:bg-white text-gray-700 backdrop-blur-sm rounded-full w-9 h-9 p-0 shadow-lg"
                 >
                   <Eye className="h-4 w-4" />
                 </Button>
@@ -96,22 +93,22 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
           </div>
           
           {/* Product Info */}
-          <div className="p-4">
-            <h3 className="font-medium text-white text-sm mb-2 line-clamp-2 group-hover:text-rose-300 transition-colors">
+          <div className="p-6">
+            <h3 className="font-medium text-gray-900 text-base mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
               {product.name}
             </h3>
-            <p className="text-rose-400 font-bold text-lg">
+            <p className="text-blue-600 font-semibold text-lg">
               {formatPrice(product.price_in_cents)}
             </p>
           </div>
         </CardContent>
       </Link>
       
-      <CardFooter className="p-4 pt-0">
+      <CardFooter className="p-6 pt-0">
         <Button
           onClick={handleAddToCart}
           disabled={isAddingToCart || product.in_stock === false}
-          className="w-full bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white border-0 transition-all duration-300 hover:shadow-lg hover:shadow-rose-500/25"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium py-3 transition-all duration-200 shadow-md hover:shadow-lg"
           size="sm"
         >
           {isAddingToCart ? (
