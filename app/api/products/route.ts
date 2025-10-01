@@ -1,23 +1,40 @@
 import { NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
 
 export const runtime = 'edge';
 
-export async function GET() {
-  try {
-    // 讀取 public/products.json 文件
-    const jsonPath = path.join(process.cwd(), 'public', 'products.json')
-    const fileContents = await fs.readFile(jsonPath, 'utf8')
-    const products = JSON.parse(fileContents)
-    
-    // 返回成功響應
-    return NextResponse.json(products)
-  } catch (error) {
-    // 錯誤處理
-    return NextResponse.json(
-      { error: 'Failed to load products' },
-      { status: 500 }
-    )
+const products = [
+  {
+    "id": 1,
+    "name": "經典白色運動鞋",
+    "price_in_cents": 298000,
+    "image_url": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=400&auto=format&fit=crop"
+  },
+  {
+    "id": 2,
+    "name": "極簡主義皮革錢包",
+    "price_in_cents": 158000,
+    "image_url": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=400&auto=format&fit=crop"
+  },
+  {
+    "id": 3,
+    "name": "復古圓框太陽眼鏡",
+    "price_in_cents": 89900,
+    "image_url": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&auto=format&fit=crop"
+  },
+  {
+    "id": 4,
+    "name": "北歐風格陶瓷馬克杯",
+    "price_in_cents": 35900,
+    "image_url": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&auto=format&fit=crop"
+  },
+  {
+    "id": 5,
+    "name": "手工編織羊毛圍巾",
+    "price_in_cents": 128000,
+    "image_url": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&h=400&auto=format&fit=crop"
   }
+];
+
+export async function GET() {
+  return NextResponse.json(products);
 }
